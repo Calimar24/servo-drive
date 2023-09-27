@@ -1,0 +1,163 @@
+[
+    {
+        "id": "ac603424a6c03e42",
+        "type": "tab",
+        "label": "ServoKamera",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1d11cbc06487a976",
+        "type": "exec",
+        "z": "ac603424a6c03e42",
+        "command": "python3 /home/jens/MultiKanal.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "10",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Servo Kanal \"Payload\" starten",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "fa76def873fc90af"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4259028527b713b6",
+        "type": "inject",
+        "z": "ac603424a6c03e42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "1d11cbc06487a976"
+            ]
+        ]
+    },
+    {
+        "id": "fa76def873fc90af",
+        "type": "debug",
+        "z": "ac603424a6c03e42",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "efa54ce85e4cee23",
+        "type": "exec",
+        "z": "ac603424a6c03e42",
+        "command": "pkill libcamera",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Kamera beenden",
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "75751fcde5163718",
+        "type": "exec",
+        "z": "ac603424a6c03e42",
+        "command": "libcamera-vid -t 0 -v 0 --inline --listen -o tcp://0.0.0.0:8888",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Kamera auf Port 8888 starten",
+        "x": 410,
+        "y": 500,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "afd3accccf4ea50a",
+        "type": "inject",
+        "z": "ac603424a6c03e42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "efa54ce85e4cee23"
+            ]
+        ]
+    },
+    {
+        "id": "7b83f9f9946d8e34",
+        "type": "inject",
+        "z": "ac603424a6c03e42",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 500,
+        "wires": [
+            [
+                "75751fcde5163718"
+            ]
+        ]
+    }
+]
