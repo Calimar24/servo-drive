@@ -8,7 +8,7 @@ import sys
 #Channel=1
 ANG_PRESS=[0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] #Winkel wenn Taste gedrückt
 ANG_RELEASE=[90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90] # Winkel wenn Tate losgelassen
-arg = sys.argv[1] #Kanal aus Paramter übernhemen (python3 MulitKanal.py 1)
+arg = sys.argv[1] #Kanal aus Paramter übernehmen (python3 MulitKanal.py 1)
 Channel = int(arg) #Kanal in Integer 
 Pause = 0.3
 #Objects
